@@ -23,6 +23,13 @@ class Application @Inject() (val controllerComponents: SecurityComponents) exten
     Ok(views.html.index(getProfiles(request)))
   }
 
+  def notSecret = Action { implicit request =>
+    Ok(views.html.notsecret(getProfiles(request)))
+  }
+  def secret = Secure("GitHubClient") { implicit request =>
+    Ok(views.html.secret(getProfiles(request)))
+  }
+
   def login = Action { request =>
     val context: PlayWebContext = new PlayWebContext(request, playSessionStore)
     val client = config.getClients.findClient(context.getRequestParameter(Pac4jConstants.DEFAULT_CLIENT_NAME_PARAMETER)).asInstanceOf[IndirectClient[Credentials,CommonProfile]]

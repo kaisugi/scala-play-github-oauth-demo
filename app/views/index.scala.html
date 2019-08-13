@@ -3,9 +3,12 @@
 @main("Scala GitHub OAuth Demo") {
   <h1>Scala GitHub OAuth Demo</h1>
   @if(!profiles.filter(p => p.getClientName() == "GitHubClient").isEmpty) {
-    <p>You are logged in as @profiles.filter(p => p.getClientName() == "GitHubClient")(0).getUsername()</p>
+    <p>You are currently logged in as @profiles.filter(p => p.getClientName() == "GitHubClient")(0).getUsername()</p>
     <p><a href="/logout">Logout</a></p>
   } else {
     <p><a href="/login?client_name=GitHubClient">Login</a></p>
   }
+  <br/>
+  <p><a href="/notsecret">notsecret page</a></p>
+  <p><a href="/secret">secret page</a></p>
 }
