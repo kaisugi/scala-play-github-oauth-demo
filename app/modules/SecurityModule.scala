@@ -7,6 +7,7 @@ import org.pac4j.oauth.client.GitHubClient
 import org.pac4j.play.scala.{DefaultSecurityComponents, SecurityComponents}
 import org.pac4j.play.{CallbackController, LogoutController}
 import org.pac4j.play.store.{PlayCacheSessionStore, PlaySessionStore}
+import org.pac4j.play.http.PlayHttpActionAdapter
 import play.api.{Configuration, Environment}
 
 class SecurityModule(environment: Environment, configuration: Configuration) extends AbstractModule {
@@ -14,21 +15,18 @@ class SecurityModule(environment: Environment, configuration: Configuration) ext
   val base_url: String = configuration.get[String]("demoapp.base_url")
 
   override def configure(): Unit = {
-
     bind(classOf[PlaySessionStore]).to(classOf[PlayCacheSessionStore])
+    bind(classOf[SecurityComponents]).to(classOf[DefaultSecurityComponents])
 
     // callback
     val callbackController = new CallbackController()
-    callbackController.setDefaultUrl("/oauth_callback")
+    callbackController.setDefaultUrl("/")
     bind(classOf[CallbackController]).toInstance(callbackController)
 
     // logout
     val logoutController = new LogoutController()
     logoutController.setDefaultUrl("/")
     bind(classOf[LogoutController]).toInstance(logoutController)
-
-    // security components used in controllers
-    bind(classOf[SecurityComponents]).to(classOf[DefaultSecurityComponents])
   }
 
   @Provides
@@ -41,7 +39,7 @@ class SecurityModule(environment: Environment, configuration: Configuration) ext
   def provideConfig(gitHubClient: GitHubClient): Config = {
     val clients = new Clients(base_url + "/oauth_callback", gitHubClient)
     val config = new Config(clients)
-
+    config.setHttpActionAdapter(new PlayHttpActionAdapter())
     config
   }
 }
