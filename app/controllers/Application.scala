@@ -24,10 +24,10 @@ class Application @Inject() (val controllerComponents: SecurityComponents) exten
   }
 
   def notSecret = Action { implicit request =>
-    Ok(views.html.notsecret(getProfiles(request)))
+    Ok(views.html.notsecret())
   }
   def secret = Secure("GitHubClient") { implicit request =>
-    Ok(views.html.secret(getProfiles(request)))
+    Ok(views.html.secret())
   }
 
   def login = Action { request =>
