@@ -1,14 +1,15 @@
 # scala-play-github-oauth-demo
 
 This is a Scala Play Framework web app to give an example of how to login via GitHub OAuth Authentication.
+<br>
 
-:arrow_down: not logged-in (You cannot view *secret page*.)
+:neutral_face: not logged-in (You cannot view *secret page*.)
 
-![logged_out](https://user-images.githubusercontent.com/36184621/62938883-e86e3d80-be0a-11e9-868d-c2a21b9baa5c.png)
+![logged_out](https://user-images.githubusercontent.com/36184621/62940199-01c4b900-be0e-11e9-8924-48b4934a57f9.png)
 
-:arrow_down: logged-in (You can view *secret page*.)
+:smile: logged-in (You can view *secret page*.)
 
-![logged_in](https://user-images.githubusercontent.com/36184621/62938905-f4f29600-be0a-11e9-95cb-df6e5c4a39a1.png)
+![logged_in](https://user-images.githubusercontent.com/36184621/62940212-0c7f4e00-be0e-11e9-8013-62dcc6804e8c.png)
 
 **Live Demo on Heroku: https://scala-github-oauth-demo.herokuapp.com/**
 
@@ -20,6 +21,7 @@ cd scala-play-github-oauth-demo
 ```
 
 Get your GitHub Client ID & Secret (https://github.com/settings/developers). Please make sure that *Authorization callback URL* is fixed to **`http://localhost:9000/oauth_callback`**.   
+  
 Set `demoapp.client_id` and `demoapp.client_secret` in `conf/application.conf` respectively.
 
 After that
