@@ -10,17 +10,18 @@ import org.pac4j.play.scala.{Security, SecurityComponents}
 import play.api.mvc.{RequestHeader, Session}
 
 import scala.collection.JavaConverters._
+import scala.compat.java8.OptionConverters._
 
 class Application @Inject() (val controllerComponents: SecurityComponents) extends Security[CommonProfile] {
-  private def getProfiles(implicit request: RequestHeader): List[CommonProfile] = {
+  private def getProfile(implicit request: RequestHeader): Option[CommonProfile] = {
     val webContext = new PlayWebContext(request, playSessionStore)
     val profileManager = new ProfileManager[CommonProfile](webContext)
-    val profiles = profileManager.getAll(true)
-    asScalaBuffer(profiles).toList
+    val profile = profileManager.get(true)
+    profile.asScala
   }
 
   def index = Action { implicit request =>
-    Ok(views.html.index(getProfiles(request)))
+    Ok(views.html.index(getProfile(request)))
   }
 
   def notSecret = Action { implicit request =>
