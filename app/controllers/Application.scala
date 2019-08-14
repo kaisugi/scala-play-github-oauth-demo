@@ -33,7 +33,7 @@ class Application @Inject() (val controllerComponents: SecurityComponents) exten
 
   def login = Action { request =>
     val context: PlayWebContext = new PlayWebContext(request, playSessionStore)
-    val client = config.getClients.findClient(context.getRequestParameter(Pac4jConstants.DEFAULT_CLIENT_NAME_PARAMETER)).asInstanceOf[IndirectClient[Credentials,CommonProfile]]
+    val client = config.getClients.findClient("GitHubClient").asInstanceOf[IndirectClient[Credentials,CommonProfile]]
     val location = client.getRedirectAction(context).getLocation
     val newSession = new Session(mapAsScalaMap(context.getJavaSession).toMap)
     Redirect(location).withSession(newSession)
