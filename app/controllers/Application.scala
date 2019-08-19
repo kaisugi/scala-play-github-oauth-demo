@@ -2,7 +2,6 @@ package controllers
 
 import javax.inject.Inject
 import org.pac4j.core.client.IndirectClient
-import org.pac4j.core.context.Pac4jConstants
 import org.pac4j.core.credentials.Credentials
 import org.pac4j.core.profile.{CommonProfile, ProfileManager}
 import org.pac4j.play.PlayWebContext
