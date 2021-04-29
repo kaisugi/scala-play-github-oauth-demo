@@ -3,6 +3,10 @@
 This is a Scala Play Framework web app to give an example of how to login via GitHub OAuth Authentication.
 <br>
 
+(A detailed explanation in Japanese: [Scala + PlayFramework + pac4j での GitHub ログインの実装](https://qiita.com/7ma7X/items/6853333a71437d76e898))
+
+<br>
+
 :neutral_face: not logged-in (You cannot view *secret page*.)
 
 ![logged_out](https://user-images.githubusercontent.com/36184621/62940199-01c4b900-be0e-11e9-8924-48b4934a57f9.png)
