@@ -3,7 +3,7 @@
 This is a Scala Play Framework web app to give an example of how to login via GitHub OAuth Authentication.
 <br>
 
-(A detailed explanation in Japanese: [Scala + PlayFramework + pac4j での GitHub ログインの実装](https://qiita.com/7ma7X/items/6853333a71437d76e898))
+(A detailed explanation in Japanese: [Scala + PlayFramework + pac4j での GitHub ログインの実装](https://qiita.com/HelloRusk/items/6853333a71437d76e898))
 
 <br>
 
