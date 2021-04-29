@@ -16,7 +16,7 @@ This is a Scala Play Framework web app to give an example of how to login via Gi
 ## test locally
 
 ```
-git clone https://github.com/7ma7X/scala-play-github-oauth-demo.git
+git clone https://github.com/HelloRusk/scala-play-github-oauth-demo.git
 cd scala-play-github-oauth-demo 
 ```
 
